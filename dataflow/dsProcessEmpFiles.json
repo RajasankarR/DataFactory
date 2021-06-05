@@ -13,7 +13,7 @@
 				},
 				{
 					"dataset": {
-						"referenceName": "dsNewFiles",
+						"referenceName": "dsOldfiles",
 						"type": "DatasetReference"
 					},
 					"name": "sourceEmp"
@@ -23,9 +23,18 @@
 			"transformations": [
 				{
 					"name": "getmaxid"
+				},
+				{
+					"name": "Join1"
+				},
+				{
+					"name": "SurrogateKey1"
+				},
+				{
+					"name": "DerivedColumn1"
 				}
 			],
-			"script": "source(output(\n\t\tFIRST_NAME as string,\n\t\tLAST_NAME as string,\n\t\tEMAIL as string,\n\t\tPHONE_NUMBER as string,\n\t\tHIRE_DATE as string,\n\t\tJOB_ID as string,\n\t\tSALARY as string,\n\t\tCOMMISSION_PCT as string,\n\t\tMANAGER_ID as string,\n\t\tDEPARTMENT_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tmoveFiles: ['empsource','processed'],\n\tmodifiedAfter: (toTimestamp(addDays(currentDate(),-2))),\n\tmodifiedBefore: (toTimestamp(addDays(currentDate(),0))),\n\twildcardPaths:['*.csv']) ~> sourceNewEmpFiles\nsource(output(\n\t\tFIRST_NAME as string,\n\t\tLAST_NAME as string,\n\t\tEMAIL as string,\n\t\tPHONE_NUMBER as string,\n\t\tHIRE_DATE as string,\n\t\tJOB_ID as string,\n\t\tSALARY as string,\n\t\tCOMMISSION_PCT as string,\n\t\tMANAGER_ID as string,\n\t\tDEPARTMENT_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourceEmp\nsourceEmp aggregate() ~> getmaxid"
+			"script": "source(output(\n\t\tFIRST_NAME as string,\n\t\tLAST_NAME as string,\n\t\tEMAIL as string,\n\t\tPHONE_NUMBER as string,\n\t\tHIRE_DATE as string,\n\t\tJOB_ID as string,\n\t\tSALARY as string,\n\t\tCOMMISSION_PCT as string,\n\t\tMANAGER_ID as string,\n\t\tDEPARTMENT_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tmoveFiles: ['empsource','processed'],\n\twildcardPaths:['*.csv']) ~> sourceNewEmpFiles\nsource(output(\n\t\tEMPLOYEE_ID as string,\n\t\tFIRST_NAME as string,\n\t\tLAST_NAME as string,\n\t\tEMAIL as string,\n\t\tPHONE_NUMBER as string,\n\t\tHIRE_DATE as string,\n\t\tJOB_ID as string,\n\t\tSALARY as string,\n\t\tCOMMISSION_PCT as string,\n\t\tMANAGER_ID as string,\n\t\tDEPARTMENT_ID as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> sourceEmp\nsourceEmp aggregate(maxid = max(EMPLOYEE_ID)) ~> getmaxid\ngetmaxid, sourceNewEmpFiles join(1===1,\n\tjoinType:'cross',\n\tbroadcast: 'auto')~> Join1\nJoin1 keyGenerate(output(employee_id as long),\n\tstartAt: 1L) ~> SurrogateKey1\nSurrogateKey1 derive(employee_id = toLong(maxid)+employee_id) ~> DerivedColumn1"
 		}
 	}
 }
