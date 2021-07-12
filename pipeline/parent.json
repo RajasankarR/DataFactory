@@ -124,6 +124,18 @@
 									"value": "@item().name !=''",
 									"type": "Expression"
 								},
+								"ifFalseActivities": [
+									{
+										"name": "Set variable4",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "new",
+											"value": "\"34\""
+										}
+									}
+								],
 								"ifTrueActivities": [
 									{
 										"name": "Set variable3",
