@@ -31,12 +31,10 @@
 		],
 		"parameters": {
 			"listoffiles": {
-				"type": "array",
-				"defaultValue": "[\"ab,\"dfg\"]"
+				"type": "array"
 			},
 			"idealfiles": {
-				"type": "string",
-				"defaultValue": "[\"ab\",\"vvv\",df\"]"
+				"type": "string"
 			}
 		},
 		"annotations": []
