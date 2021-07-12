@@ -48,7 +48,7 @@
 				"typeProperties": {
 					"variableName": "lisoffiles",
 					"value": {
-						"value": "@activity('Get Metadata1').output",
+						"value": "@activity('Get Metadata1').output.childitems.name",
 						"type": "Expression"
 					}
 				}
