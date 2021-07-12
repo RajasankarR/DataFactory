@@ -46,7 +46,7 @@
 				"typeProperties": {
 					"variableName": "lisoffiles",
 					"value": {
-						"value": "@activity('Get Metadata1').output.childitems.value",
+						"value": "@activity('Get Metadata1').output.childitems",
 						"type": "Expression"
 					}
 				}
@@ -94,6 +94,36 @@
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "child",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"listoffiles": {
+							"value": "@variables('lisoffiles')",
+							"type": "Expression"
+						},
+						"idealfiles": {
+							"value": "@variables('idealfiles')",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],
