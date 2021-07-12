@@ -95,42 +95,6 @@
 					},
 					"firstRowOnly": false
 				}
-			},
-			{
-				"name": "Execute Pipeline1",
-				"type": "ExecutePipeline",
-				"dependsOn": [
-					{
-						"activity": "Set variable1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					},
-					{
-						"activity": "Set variable2",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"pipeline": {
-						"referenceName": "child",
-						"type": "PipelineReference"
-					},
-					"waitOnCompletion": true,
-					"parameters": {
-						"listoffiles": {
-							"value": "@variables('lisoffiles')",
-							"type": "Expression"
-						},
-						"idealfiles": {
-							"value": "@variables('idealfiles')",
-							"type": "Expression"
-						}
-					}
-				}
 			}
 		],
 		"variables": {
