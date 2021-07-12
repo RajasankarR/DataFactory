@@ -1,0 +1,11 @@
+{
+	"name": "child",
+	"properties": {
+		"parameters": {
+			"listoffiles": {
+				"type": "array"
+			}
+		},
+		"annotations": []
+	}
+}
