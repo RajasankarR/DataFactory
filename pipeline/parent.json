@@ -132,7 +132,7 @@
 										"userProperties": [],
 										"typeProperties": {
 											"variableName": "new",
-											"value": "12"
+											"value": "\"12\""
 										}
 									}
 								]
