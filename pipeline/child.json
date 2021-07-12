@@ -20,7 +20,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@item().name!=''",
+									"value": "1==1",
 									"type": "Expression"
 								}
 							}
