@@ -84,11 +84,20 @@
 						]
 					}
 				],
-				"userProperties": []
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "idealfiles",
+					"value": [
+						""
+					]
+				}
 			}
 		],
 		"variables": {
 			"lisoffiles": {
+				"type": "Array"
+			},
+			"idealfiles": {
 				"type": "Array"
 			}
 		},
