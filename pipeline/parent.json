@@ -68,7 +68,7 @@
 				"typeProperties": {
 					"variableName": "idealfiles",
 					"value": {
-						"value": "@activity('Lookup1').output.value.value",
+						"value": "@activity('Lookup1').output.value",
 						"type": "Expression"
 					}
 				}
