@@ -1,34 +1,6 @@
 {
 	"name": "child",
 	"properties": {
-		"activities": [
-			{
-				"name": "ForEach1",
-				"type": "ForEach",
-				"dependsOn": [],
-				"userProperties": [],
-				"typeProperties": {
-					"items": {
-						"value": "@pipeline().parameters.listoffiles",
-						"type": "Expression"
-					},
-					"activities": [
-						{
-							"name": "If Condition1",
-							"type": "IfCondition",
-							"dependsOn": [],
-							"userProperties": [],
-							"typeProperties": {
-								"expression": {
-									"value": "@bool(1)",
-									"type": "Expression"
-								}
-							}
-						}
-					]
-				}
-			}
-		],
 		"parameters": {
 			"listoffiles": {
 				"type": "array"
