@@ -121,7 +121,17 @@
 						"referenceName": "child",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": true
+					"waitOnCompletion": true,
+					"parameters": {
+						"listoffiles": {
+							"value": "@variables('lisoffiles')",
+							"type": "Expression"
+						},
+						"idealfiles": {
+							"value": "@variables('idealfiles')",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],
