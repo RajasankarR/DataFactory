@@ -87,9 +87,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "idealfiles",
-					"value": [
-						""
-					]
+					"value": {
+						"value": "@activity('Stored procedure1').output",
+						"type": "Expression"
+					}
 				}
 			}
 		],
