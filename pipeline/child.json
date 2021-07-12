@@ -20,7 +20,7 @@
 							"userProperties": [],
 							"typeProperties": {
 								"expression": {
-									"value": "@contains(pipeline().parameters.idealfiles,item().name)",
+									"value": "@contains(pipeline().parameters.idealfiles,item())",
 									"type": "Expression"
 								}
 							}
