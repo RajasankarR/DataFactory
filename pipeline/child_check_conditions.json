@@ -1,0 +1,17 @@
+{
+	"name": "child_check_conditions",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
+			}
+		],
+		"folder": {
+			"name": "Limitations"
+		},
+		"annotations": []
+	}
+}
